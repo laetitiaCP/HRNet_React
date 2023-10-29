@@ -1,0 +1,39 @@
+#employees {
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+}
+
+#employees td,
+#employees th {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+#employees tr:hover {
+  background-color: #ddd;
+}
+
+#employees th {
+  padding: 10px;
+  text-align: center;
+  background-color: #4caf50;
+  color: white;
+}
+
+/** PAGINATION **/
+.pagination {
+  display: flex;
+
+  &__item {
+    list-style: none;
+    border: solid 1px #4caf50;
+    padding: 10px;
+    &.active {
+     background-color: #4caf50;
+    }
+  }
+  &__link {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

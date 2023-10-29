@@ -1,9 +1,11 @@
 import Header from "../../Components/Header/header";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import "./createEmployee.scss";
 import DropdownComponent from "../../Components/Dropdown/dropdown";
 import {states} from "../../Data/states";
 import {department} from "../../Data/department";
+import {ListEmployeesContext} from "../../Utils/context/context";
+import Modal from "../../Components/Modal/modal";
 
 function CreateEmployee() {
     const [formData, setFormData] = useState({
@@ -13,10 +15,11 @@ function CreateEmployee() {
         startDate:"",
         street:"",
         city:"",
-        state:"",
         zipCode:"",
-        department:""
     })
+
+    const { saveEmployees, listEmployees } = useContext(ListEmployeesContext);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleChange = (event) => {
         console.log(event)
@@ -32,9 +35,11 @@ function CreateEmployee() {
             let {name, value} = event;
             if (name === "Department") {
                 department.find(item => {
+                    console.log(item)
                     if (item.id === value) {
                         return value = item.name;
                     }
+                    return null;
                 })
             }
             setFormData((prevState) => ({...prevState, [name]: value}));
@@ -43,8 +48,17 @@ function CreateEmployee() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(formData);
+        saveEmployees(formData)
+        openModal();
     }
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <div>
@@ -64,11 +78,18 @@ function CreateEmployee() {
                     value={formData.lastname}
                     onChange={handleChange}
                 />
-                <label htmlFor="firstname">Date of Birth</label>
+                <label htmlFor="dateBirth">Date of Birth</label>
                 <input
-                    type="text"
+                    type="date"
                     name="dateBirth"
                     value={formData.dateOfBirth}
+                    onChange={handleChange}
+                />
+                <label htmlFor="startDate">Start date</label>
+                <input
+                    type="date"
+                    name="startDate"
+                    value={formData.startDate}
                     onChange={handleChange}
                 />
                 <label htmlFor="street">Street</label>
@@ -88,7 +109,7 @@ function CreateEmployee() {
                 <DropdownComponent data={states} onChange={handleChangeDropdown} nameDropdown="States"/>
                 <label htmlFor="zipCode">Zip Code</label>
                 <input
-                    type="text"
+                    type="number"
                     name="zipCode"
                     value={formData.zipCode}
                     onChange={handleChange}
@@ -96,6 +117,9 @@ function CreateEmployee() {
                 <DropdownComponent data={department} onChange={handleChangeDropdown} nameDropdown="Department"/>
                 <input type="submit" value="Save" />
             </form>
+            <Modal isOpen={isModalOpen} onClose={() => closeModal()}>
+                <h2 className="modal_employee">Employee Created!</h2>
+            </Modal>
         </div>
 
     )

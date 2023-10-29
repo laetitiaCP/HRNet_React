@@ -16,9 +16,15 @@
     }
   }
   &__body {
+    position: absolute;
+    height: 150px;
+    overflow: auto;
     padding: 5px;
     border-top: 1px solid #E5E8EC;
     display: none;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    z-index: 9;
+    border-radius: 3px;
     &.open {
       display: block;
     }

@@ -10,6 +10,7 @@ import "./dropdown.scss";
  */
 function DropdownComponent({data, onChange, nameDropdown}) {
     const [isOpen, setIsOpen] = useState(false);
+    // eslint-disable-next-line
     const [items, setItems] = useState(data);
     const [selectedItem, setSelectedItem] = useState(null);
 

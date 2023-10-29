@@ -4,13 +4,16 @@ import './index.css';
 import RoutesApp from './RoutesApp';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
+import {ListEmployeesProvider} from "./Utils/context/context";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <BrowserRouter>
-            <RoutesApp />
-      </BrowserRouter>
+      <ListEmployeesProvider>
+          <BrowserRouter>
+                <RoutesApp />
+          </BrowserRouter>
+      </ListEmployeesProvider>
   </React.StrictMode>
 );
 
