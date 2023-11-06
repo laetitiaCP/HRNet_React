@@ -1,0 +1,55 @@
+@import "../../Style/variables";
+
+.container {
+  display: flex;
+  align-self: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $primary-color;
+  width: 400px;
+  height: 650px;
+  border-radius: 15px;
+  box-shadow: 5px 6px 10px rgba(89,108,1,0.3);
+  margin-top: 40px;
+  & label {
+    height: 25px;
+    margin-top: 5px;
+    color: whitesmoke;
+  }
+  & input {
+    width: 200px;
+    height: 25px;
+    border-radius: 15px;
+  }
+  &__address {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: whitesmoke;
+    box-shadow: 5px 6px 10px rgba(89,108,1,0.3);
+  }
+}
+
+#button-submit {
+  margin: 30px 0 10px 0;
+  border: solid 3px green;
+  width: 100px;
+  height: 30px;
+  box-shadow: 5px 6px 10px rgba(0,0,0,0.3);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.modal_employee {
+  display: flex;
+}
+
+#text-invalid {
+  font-size: 10px;
+  color: whitesmoke;
+}

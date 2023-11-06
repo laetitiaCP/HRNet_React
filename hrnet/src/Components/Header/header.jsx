@@ -6,8 +6,14 @@ function Header({title}) {
 
     return (
         <div className="header">
-            <img className="header__logo" src={logo} alt="logo de Wealth health"/>
-            <h1 className="header__title">{title}</h1>
+            <div className="header__logos">
+                <div>
+                    <img className="header__logos__logo" src={logo} alt="logo de Wealth health"/>
+                    <h2 className="header__logos__title">WEALTH HEALTH</h2>
+                </div>
+                <h1 className="header__toolName">HRNet</h1>
+            </div>
+            <h2 className="header__title">{title}</h2>
             {title === "Create Employee"
                 ? <Link to={"/employeeList"}>View Curent Employees</Link>
                 : <Link to={"/createEmployee"}>Home</Link>

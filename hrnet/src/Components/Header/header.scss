@@ -1,11 +1,42 @@
+@import "../../Style/variables";
+
 .header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  &__logo {
-    width: 150px;
+  justify-content: space-between;
+  border: solid 1px green;
+  box-shadow: 14px 12px 9px $primary-color-opacity;
+  background-color: $primary-color;
+  &__logos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    &__logo {
+
+      width: 80px;
+    }
+    &__title {
+      color: whitesmoke;
+      font-size: 10px;
+    }
+  }
+  &__toolName {
+    color: whitesmoke;
+    margin-left: 20px;
+    font-size: 20px;
   }
   &__title {
-
+    color: whitesmoke;
+  }
+  & a {
+    color: whitesmoke;
+    border: solid 1px #596c01;
+    border-radius: 15px;
+    box-shadow: 5px 6px 10px rgba(89,108,1,0.3);
+    padding: 5px;
+    text-decoration: none;
+    margin-right: 20px;
   }
 }

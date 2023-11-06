@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import chevronUp from "../../images/chevron-up.svg";
 import chevronDown from "../../images/chevron-down.svg";
 import "./dropdown.scss";
@@ -8,24 +8,29 @@ import "./dropdown.scss";
  * @param {array<object>} data data in dropdown
  * @constructor
  */
-function DropdownComponent({data, onChange, nameDropdown}) {
+function DropdownComponent({data, onChange, nameDropdown, clear, idDropdown}) {
     const [isOpen, setIsOpen] = useState(false);
     // eslint-disable-next-line
     const [items, setItems] = useState(data);
     const [selectedItem, setSelectedItem] = useState(null);
 
     const toggleDropdown = () => setIsOpen(!isOpen);
-
     const handleItemClick = (id) => {
         selectedItem === id ? setSelectedItem(null) : setSelectedItem(id);
         onChange({name:nameDropdown,value:id})
         toggleDropdown();
     };
 
+    useEffect(() => {
+        if (clear) {
+            setSelectedItem(null);
+        }
+    })
+    console.log(idDropdown)
     return (
-        <div className="dropdown">
+        <div className="dropdown" id={idDropdown}>
             <div className="dropdown__header" onClick={toggleDropdown}>
-                {selectedItem ? items.find(item => item.id === selectedItem).name : nameDropdown}
+                {selectedItem && !clear ? items.find(item => item.id === selectedItem).name : nameDropdown}
                 {!isOpen && <img src={chevronDown} alt="chevron bas" />}
                 {isOpen && <img src={chevronUp} alt="chevron haut" />}
             </div>
