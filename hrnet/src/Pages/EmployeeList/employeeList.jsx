@@ -37,7 +37,7 @@ function EmployeeList() {
         return headerElement.map((header) => {
             return <th key={header}
                        className={sortBy === header ? sortDirection ? "ascending-sort" : "descending-sort" : ""}>
-                <a href="#" onClick={handleHeader}>
+                <a onClick={handleHeader}>
                     {header}
                 </a>
             </th>

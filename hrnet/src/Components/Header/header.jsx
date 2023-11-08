@@ -15,7 +15,7 @@ function Header({title}) {
             </div>
             <h2 className="header__title">{title}</h2>
             {title === "Create Employee"
-                ? <Link to={"/employeeList"}>View Curent Employees</Link>
+                ? <Link to={"/employeeList"}>View Current Employees</Link>
                 : <Link to={"/createEmployee"}>Home</Link>
             }
         </div>

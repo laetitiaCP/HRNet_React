@@ -50,7 +50,7 @@ function Form() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(formData.dateOfBirth)
+
         if (formData.Department === "" || formData.States === "") {
             let invalidDropdown = document.getElementsByClassName("dropdown");
             let messageSpan = document.createElement("span");
