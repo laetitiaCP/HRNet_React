@@ -15,7 +15,9 @@ function Modal({isOpen, onClose, children}) {
     return (
         <div>
             <div className="modal">
-                <button onClick={onClose} className="modal__close">&times;</button>
+                <div className="modal__header">
+                    <button onClick={onClose} className="modal__close">&times;</button>
+                </div>
                 {children}
             </div>
             <div className="bg" onClick={e => close(e)}></div>

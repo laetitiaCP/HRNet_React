@@ -2,6 +2,7 @@
 
 .modal {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 9999;
@@ -11,10 +12,17 @@
   min-width: 250px;
   min-height: 100px;
   padding: 15px;
-  border: solid 5px green;
+  border: solid 5px rgba(50,24,173);
   border-radius: 10px;
   transform: translate(-50%, -50%);
   background: #fff;
+  &__header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: 38px;
+    background-color: rgba(50,24,173);
+  }
   &__close {
     position: absolute;
     top: 4px;
