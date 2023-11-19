@@ -4,8 +4,8 @@ import DropdownComponent from "../../Components/Dropdown/dropdown";
 import {states} from "../../Data/states";
 import {department} from "../../Data/department";
 import {ListEmployeesContext} from "../../Utils/context/context";
-/*import Modal from "../../Components/Modal/modal";*/
-import Modal from "modal-lcp";
+import Modal from "../../Components/Modal/modal";
+//import Modal from "modal-lcp";
 import "modal-lcp/dist/index.css";
 
 function Form() {

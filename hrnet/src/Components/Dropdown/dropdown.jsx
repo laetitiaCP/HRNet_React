@@ -26,7 +26,7 @@ function DropdownComponent({data, onChange, nameDropdown, clear, idDropdown}) {
             setSelectedItem(null);
         }
     })
-    console.log(idDropdown)
+
     return (
         <div className="dropdown" id={idDropdown}>
             <div className="dropdown__header" onClick={toggleDropdown}>

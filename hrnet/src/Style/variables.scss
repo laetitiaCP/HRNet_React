@@ -1,3 +1,9 @@
 $primary-color: rgba(50,24,173);
 
 $primary-color-opacity: rgba(50,24,173,0.3);
+
+@mixin mobile-breakpoint {
+  @media screen and (max-width: 700px) {
+    @content;
+  }
+}

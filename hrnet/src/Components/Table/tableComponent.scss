@@ -23,6 +23,7 @@
 /** TABLE **/
 
 .table {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,69 +37,65 @@
 }
 
 .data {
-  & thead {
-    background-color: #ffffff;
-    border: 1px solid #d6d6d6;
-    border-bottom: none;
-    & th {
-      text-transform: capitalize;
-      border-right: 1px solid #d6d6d6;
-      background-color: #f5f5f5;
-      font-size: 12px;
-      font-weight: 600;
-      & a {
-        position: relative;
-        text-decoration: none;
-        color: $primary-color;
-        display: block;
-        padding: 10px;
+  width: 90%;
+    & thead {
+      background-color: #ffffff;
+      border: 1px solid #d6d6d6;
+      border-bottom: none;
+      & th {
+        text-transform: uppercase;
+        border-right: 1px solid #d6d6d6;
+        background-color: #f5f5f5;
         font-size: 12px;
         font-weight: 600;
-        text-align: left;
-        padding-right: 25px;
+        & a {
+          position: relative;
+          text-decoration: none;
+          color: $primary-color;
+          display: block;
+          padding: 10px 10px 10px 10px;
+          font-size: 12px;
+          font-weight: 600;
+          text-align: left;
+          @include mobile-breakpoint {
+            padding: 5px;
+            font-size: 8px;
+          }
+        }
+        & a:hover, & a:focus {
+          background-color: #e2e2e4;
+        }
       }
-      & a:hover, & a:focus {
-        background-color: #e2e2e4;
+
+      & th:last-child {
+        border-right: none;
+      }
+
+      & th.ascending-sort a:hover,
+      & th.ascending-sort a:focus,
+      & th.descending-sort a:hover,
+      & th.descending-sort a:focus {
+        background-color: $primary-color-opacity;
+      }
+
+      & th.ascending-sort a:before,
+      & th.descending-sort a:before {
+        content: '';
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        border: 5px solid transparent;
+      }
+
+      & th.ascending-sort a:before {
+        border-bottom-color: $primary-color;
+        margin-top: -7px;
+      }
+
+      & th.descending-sort a:before {
+        border-top-color: $primary-color;
+        margin-top: -2px;
       }
     }
-    & th:last-child {
-      border-right: none;
-    }
-    & th.ascending-sort a:hover,
-    & th.ascending-sort a:focus,
-    & th.descending-sort a:hover,
-    & th.descending-sort a:focus {
-      background-color: $primary-color-opacity;
-    }
-    & th.ascending-sort a:before,
-    & th.descending-sort a:before {
-      content: '';
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      border: 5px solid transparent;
-    }
-    & th.ascending-sort a:before {
-      border-bottom-color: $primary-color;
-      margin-top: -7px;
-    }
-    & th.descending-sort a:before {
-      border-top-color: $primary-color;
-      margin-top: -2px;
-    }
-  }
-  & tbody {
-    & tr {
-      border-top: 1px solid #d6d6d6;
-    }
-    & td {
-      border-right: 1px solid #d6d6d6;
-      font-size: 12px;
-      padding: 10px;
-    }
-    & td:last-child {
-      border-right: none;
-    }
-  }
 }
 
